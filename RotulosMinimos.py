@@ -1,7 +1,6 @@
 # coding: utf-8 
 import string
 
-
 def ler_arquivo (nomeArquivo):
 	conteudoDoArquivo = []
 	arquivo = open(nomeArquivo, 'r')
@@ -13,18 +12,23 @@ def ler_arquivo (nomeArquivo):
 	"""print conteudoDoArquivo"""			
 	
 	criaGrafo(cebecalho, conteudoDoArquivo)
-	
 	arquivo.close()
 	
 def criaGrafo(cabecalho, conteudoDoArquivo):
-	numVertice = cabecalho[0]
 	rotulo = cabecalho[1]
+	vertice = {} 
+	valorVertice = 1
 	
-	vertice = []
-	vertice = 1
 	for i in conteudoDoArquivo:
-		print vertice
-			
+		for j in i:
+			if(j == rotulo):
+				vertice = {valorVertice: }
+			else:
+				valorLinha = 
+				valorColuna =
+				vertice = {valorVertice: }
+		
+		
 		
 ler_arquivo("HDGraph50_12.txt")
 

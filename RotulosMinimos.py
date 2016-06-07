@@ -16,19 +16,20 @@ def ler_arquivo (nomeArquivo):
 	
 def criaGrafo(cabecalho, conteudoDoArquivo):
 	rotulo = cabecalho[1]
+	tamLaco = int(cabecalho[0])
 	vertice = {} 
-	valorVertice = 1
-	
+	valor = 1
+	print tamLaco
+		
 	for i in conteudoDoArquivo:
 		for j in i:
 			if(j == rotulo):
-				vertice = {valorVertice: }
+				vertice = {'valorDoVertice': valor, 'rotulo': 0}
+				valor = valor + 1
+					
 			else:
-				valorLinha = 
-				valorColuna =
-				vertice = {valorVertice: }
-		
-		
-		
+				vertice = {'valorDoVertice': valor, 'rotulo': j}
+				valor = valor + 1
+			
 ler_arquivo("HDGraph50_12.txt")
 

@@ -19,10 +19,12 @@ def criaGrafo(cabecalho, conteudoDoArquivo):
 	tamLaco = int(cabecalho[0])
 	vertice = {} 
 	valor = 1
-	print tamLaco
-		
+	
 	for i in conteudoDoArquivo:
 		for j in i:
+			if(tamLaco == 0):
+				vertice = {}
+				valor = 1
 			if(j == rotulo):
 				vertice = {'valorDoVertice': valor, 'rotulo': 0}
 				valor = valor + 1
@@ -30,6 +32,11 @@ def criaGrafo(cabecalho, conteudoDoArquivo):
 			else:
 				vertice = {'valorDoVertice': valor, 'rotulo': j}
 				valor = valor + 1
+			tamLaco = tamLaco - 1
+			print vertice
 			
+"""def mvca(vertice, tamLaco):"""
+	
+	
 ler_arquivo("HDGraph50_12.txt")
 

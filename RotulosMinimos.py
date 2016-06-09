@@ -57,6 +57,7 @@ def encontraVertice (vertice, contLinhas, contColunas):
 1) pegar label por label
 2) gerar a arvore com esses labels
 3) pegar o proximo label e verificar com todos, e ver qual é o menor
+4) retornar o menor numero de rotulos q liga todo mundo
 
 c = armazena os labels
 h = gera um subgrafo com os labels
@@ -67,9 +68,10 @@ def mvca(grafo):
 	for i in grafo:
 		c = grafo.get('rotulo')
 		tamArestas = grafo.get('ligado')
-		print len(tamArestas)
-		
-		grafoFinal = {'vertice': grafo.get('vertice'), 'ligado': grafo.get('ligado'), 'rotulo': c, 'numArestas': None}
+		minimo = 2
+		if (len(tamArestas) <= minimo):
+			grafoFinal = {'vertice': grafo.get('vertice'), 'ligado': tamArestas, 'rotulo': c}
+			print grafoFinal
 	
 		
 ler_arquivo("HDGraph50_12.txt")

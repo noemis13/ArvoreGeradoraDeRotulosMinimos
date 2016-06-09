@@ -27,47 +27,31 @@ def criaGrafo(cabecalho, conteudoDoArquivo):
 	for i in conteudoDoArquivo:
 		contColunas = 0
 		for j in i:
+			if(tamLaco == 0):
+				grafo = {}
+				vertice = {}
+				valorVertice = 1
+				
 			contColunas = contColunas + 1
 			vertice = {'posLinha': contLinhas, 'posColuna': contColunas, 'valorDoVertice': valorVertice}
 			
 			if(j != rotulo):
-				for i in vertice: 
-					if(contLinhas == vertice.get('posLinha') and contColunas == vertice.get('posColuna')):
-						valor = vertice.get('valorDoVertice')
-					
+				valor = encontraVertice(vertice, contLinhas, contColunas)
 				vetorVertice = contLinhas, contColunas
 				grafo ={'vertice': valor, 'ligado': vetorVertice, 'rotulo': j}	
-			print grafo
-			valorVertice = valorVertice + 1
-		contLinhas = contLinhas + 1
-		
-				
-
-"""
-def criaGrafo(cabecalho, conteudoDoArquivo):
-	rotulo = cabecalho[1]
-	tamLaco = int(cabecalho[0])
-	vertice = {} 
-	valor = 1
-	
-	for i in conteudoDoArquivo:
-		for j in i:
-			if(tamLaco == 0):
-				vertice = {}
-				valor = 1
-													
-			if(j == rotulo):
-				vertice = {'valorDoVertice': valor, 'rotulo': 0}
-				valor = valor + 1
-					
-			else:
-				vertice = {'valorDoVertice': valor, 'rotulo': j}
-				valor = valor + 1
 			
-			print vertice
-			mvca(vertice)
-			tamLaco = tamLaco - 1
-"""		
+			valorVertice = valorVertice + 1
+			mvca(grafo)
+		contLinhas = contLinhas + 1
+		tamLaco = tamLaco - 1
+		
+		
+def encontraVertice (vertice, contLinhas, contColunas):				
+	for i in vertice: 
+		if(contLinhas == vertice.get('posLinha') and contColunas == vertice.get('posColuna')):
+			valor = vertice.get('valorDoVertice')
+	return valor			
+		
 """
 -------------PASSOS DO MVCA-----------
 1) pegar label por label
@@ -78,9 +62,15 @@ c = armazena os labels
 h = gera um subgrafo com os labels
 Comp(c) = numero de componentes conexas
 """
-def mvca(vertice):
-	c = []
-	c = vertice.get('rotulo')
+def mvca(grafo):
+	tamArestas = []
+	for i in grafo:
+		c = grafo.get('rotulo')
+		tamArestas = grafo.get('ligado')
+		print len(tamArestas)
+		
+		grafoFinal = {'vertice': grafo.get('vertice'), 'ligado': grafo.get('ligado'), 'rotulo': c, 'numArestas': None}
+	
 		
 ler_arquivo("HDGraph50_12.txt")
 
